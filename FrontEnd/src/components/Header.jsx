@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { assets } from "../assets/assets_frontend/assets";
-import { useState, useEffect } from "react";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(false);
