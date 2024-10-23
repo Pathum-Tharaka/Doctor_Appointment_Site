@@ -52,7 +52,7 @@ const Doctors = () => {
         transition-all duration-500 delay-300
       `}
     >
-      <UserX size={48} className="text-blue-100 mb-4" />
+      <UserX size={48} className="text-blue-200 mb-4" />
       <h3 className="text-xl font-medium text-gray-900 mb-2">No Doctors Available</h3>
       <p className="text-gray-600 text-center max-w-md">
         {speciality 
