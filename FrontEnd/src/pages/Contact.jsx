@@ -11,7 +11,7 @@ const Contact = () => {
       </div>
 
       {/* Main content section */}
-      <div className="my-10 flex flex-col md:flex-row gap-10 mb-28 justify-center items-center">
+      <div className="my-10 flex flex-col md:flex-row gap-12 mb-28 justify-center items-center">
         {/* Image with hover effect and animation */}
         <div className="w-full md:w-auto animate-[slideInLeft_1s_ease-out]">
           <img
