@@ -15,7 +15,8 @@ const About = () => {
       <div className="my-10 flex flex-col md:flex-row gap-20 items-center justify-center">
         {/* Image slides in from left */}
         <img
-          className="w-full md:max-w-[360px] animate-[slideInLeft_1s_ease-out]"
+          className="w-full md:max-w-[360px] rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 animate-[slideInLeft_1s_ease-out]"
+
           src={assets.about_image}
           alt=""
         />
