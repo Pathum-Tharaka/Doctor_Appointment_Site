@@ -3,7 +3,7 @@ import { assets } from '../assets/assets_frontend/assets';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 mt-20">
+    <footer className="bg-gray-50 mt-10">
       <div className="max-w-7xl mx-auto px-4 md:px-10">
         <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-8 md:gap-14 py-12">
           {/* left side */}
