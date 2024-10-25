@@ -5,12 +5,17 @@ import { NavLink, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const [ShowMenu, setShaoMenu] = React.useState(false);
+  const [ShowMenu, setShawMenu] = React.useState(false);
   const [token, setToken] = React.useState(true);
 
   return (
     <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-b-grey-400">
-      <img onClick={() => navigate("/")} className="w-44 cursor-pointer" src={assets.logo} alt="" />
+      <img
+        onClick={() => navigate("/")}
+        className="w-44 cursor-pointer"
+        src={assets.logo}
+        alt=""
+      />
       <ul className="hidden md:flex items-start gap-5 font-medium">
         <NavLink to="/">
           <li className="py-1">HOME</li>
@@ -36,11 +41,26 @@ const Navbar = () => {
             <img className="w-8 rounded-full" src={assets.profile_pic} alt="" />
             <img className="w-2.5" src={assets.dropdown_icon} alt="" />
             <div className="absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 hidden group-hover:block">
-                <div className="min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4">
-                    <p onClick={() => navigate("/myprofile")} className="hover:text-black cursor-pointer">Profile</p>
-                    <p onClick={() => navigate("/myappointment")} className="hover:text-black cursor-pointer">My Appointment</p>
-                    <p onClick={() => setToken(false)} className="hover:text-black cursor-pointer">Logout</p>
-                </div>
+              <div className="min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4">
+                <p
+                  onClick={() => navigate("/myprofile")}
+                  className="hover:text-black cursor-pointer"
+                >
+                  Profile
+                </p>
+                <p
+                  onClick={() => navigate("/myappointment")}
+                  className="hover:text-black cursor-pointer"
+                >
+                  My Appointments
+                </p>
+                <p
+                  onClick={() => setToken(false)}
+                  className="hover:text-black cursor-pointer"
+                >
+                  Logout
+                </p>
+              </div>
             </div>
           </div>
         ) : (
@@ -51,6 +71,33 @@ const Navbar = () => {
             Create Account
           </button>
         )}
+        <img
+          className="w-6 md:hidden"
+          src={assets.menu_icon}
+          onClick={() => setShawMenu(true)}
+          alt=""
+        />
+        {/* mobile menu */}
+        <div
+          className={`${
+            ShowMenu ? "fixed w-full" : "h-0 w-0"
+          } md:hidden right-0 top-0 bg-white bottom-0 z-20 overflow-hidden transition-all`}
+        >
+          <div className="flex items-center justify-between px-5 py-6">
+            <img className="w-36" src={assets.logo} alt="Logo" />
+            <img className="w-7"
+              onClick={() => setShawMenu(false)}
+              src={assets.cross_icon}
+              alt="Close menu icon"
+            />
+          </div>
+          <ul className="flex flex-col items-center gap-2 font-medium text-lg mt-5 px-5">
+            <NavLink to={"/"} onClick={() => setShawMenu(false)}><p className="px-4 py-2 rounded inline-block">HOME</p></NavLink>
+            <NavLink to={"/doctors"} onClick={() => setShawMenu(false)}><p className="px-4 py-2 rounded inline-block">ALL DOCTORS</p></NavLink>
+            <NavLink to={"/about"} onClick={() => setShawMenu(false)}><p className="px-4 py-2 rounded inline-block">ABOUT</p></NavLink>
+            <NavLink to={"/contact"} onClick={() => setShawMenu(false)}><p className="px-4 py-2 rounded inline-block">CONTACT</p></NavLink>
+          </ul>
+        </div>
       </div>
     </div>
   );
