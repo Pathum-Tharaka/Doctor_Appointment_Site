@@ -22,7 +22,7 @@ const Contact = () => {
         </div>
 
         {/* Contact information with animations */}
-        <div className="flex flex-col justify-center items-start gap-8">
+        <div className="flex flex-col justify-center items-start gap-8 animate-[fadeIn_1s_ease-out]">
           {/* Office Section */}
           <div className="space-y-3">
             <div className="flex items-center gap-2 text-gray-700">
