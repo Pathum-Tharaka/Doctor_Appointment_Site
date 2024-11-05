@@ -13,12 +13,10 @@ const Login = () => {
     event.preventDefault();
 
     try{
-      if (state === 'Admin' && !email.trim()) {
-        setError('Please enter your email');
-        return;
+      if (state === 'Admin') {
+        
       }else{
-        setError('');
-        console.log({ email, password });
+        
       }
 
     }catch (error) {
