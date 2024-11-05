@@ -1,5 +1,8 @@
 import React , { useState } from 'react'
 import { assets } from '../assets/assets_admin/assets'
+import { AdminContext } from '../context/AdminContext'
+import { useContext } from 'react'
+import axios from 'axios'
 
 const Login = () => {
     
@@ -14,7 +17,11 @@ const Login = () => {
 
     try{
       if (state === 'Admin') {
-        
+        const {data} = await axios.post(`${backendUrl}/admin/login`,{email,password})
+        if (data.success) {
+          localStorage.setItem('aToken',data.token)
+          setAToken(data.token)
+        }
       }else{
         
       }
@@ -27,18 +34,18 @@ const Login = () => {
 
 
   return (
-    <form>
+    <form onSubmit={onSubmitHandler}>
       <div>
         <p><span> {state} </span> Login</p>
 
         <div>
           <p >Email</p>
-          <input onClick={(e) => setEmail(e.target.value)} value={email} type="email"  required/>
+          <input onChange={(e) => setEmail(e.target.value)} value={email} type="email"  required/>
         </div>
 
         <div >
           <p>Password</p>
-          <input onClick={(e) => setPassword(e.target.value)} value={password} type="password"  required/>
+          <input onChange={(e) => setPassword(e.target.value)} value={password} type="password"  required/>
         </div>
 
         
